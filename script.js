@@ -1,5 +1,5 @@
 // const serverURL = "http://localhost:5000";
-const serverURL = "https://pe-o4br.onrender.com";
+const serverURL = "https://server-8sni.onrender.com";
 
 // select fields
 const area = document.getElementById("area");
