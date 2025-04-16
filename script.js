@@ -43,12 +43,19 @@ function fetchFENumbers() {
       const feDropdown = document.getElementById("feNo");
       feDropdown.innerHTML =
         '<option value="">Select Fire Extinguisher</option>';
-      data?.data.forEach((item) => {
-        const option = document.createElement("option");
-        option.value = item["feNo"];
-        option.textContent = item["feNo"];
-        feDropdown.appendChild(option);
-      });
+      data?.data
+    .sort((a, b) => {
+      const numA = parseInt(a.feNo.split("-")[1], 10);
+      const numB = parseInt(b.feNo.split("-")[1], 10);
+      return numA - numB;
+    })
+    .forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item["feNo"];
+      option.textContent = item["feNo"];
+      feDropdown.appendChild(option);
+  });
+
     })
     .catch((error) => console.error("Error fetching FE Nos:", error));
 }
